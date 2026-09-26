@@ -441,29 +441,9 @@ function toQueryString(params: Record<string, unknown>): Record<string, string> 
   );
 }
 
-// The API localizes category and risk CODES with `language` ("initiation"/"high" in English);
-// the UI keys styles, icons, labels and counts on the canonical Spanish codes. Map them back
-// once here so every component sees one set.
-const CANONICAL_CATEGORY: Record<string, string> = {
-  initiation: "iniciacion", notification: "notificacion", monitoring: "monitoreo", actuation: "accionamiento",
-};
-const CANONICAL_RISK: Record<string, string> = { high: "alto", medium: "medio", low: "bajo" };
-
-function canonicalCodes<T>(value: T): T {
-  if (Array.isArray(value)) return value.map(canonicalCodes) as T;
-  if (!value || typeof value !== "object") return value;
-  const out: Record<string, unknown> = {};
-  for (const [key, v] of Object.entries(value as Record<string, unknown>)) {
-    if (typeof v === "string" && key === "type" && CANONICAL_CATEGORY[v]) out[key] = CANONICAL_CATEGORY[v];
-    else if (typeof v === "string" && (key === "level" || key === "risk") && CANONICAL_RISK[v]) out[key] = CANONICAL_RISK[v];
-    else out[key] = canonicalCodes(v);
-  }
-  return out as T;
-}
-
 async function resolveBody<T>(op: { response: Promise<{ body: { json: () => Promise<unknown> } }> }): Promise<T> {
   const resp = await op.response;
-  return canonicalCodes(await resp.body.json()) as T;
+  return (await resp.body.json()) as T;
 }
 
 export const fireCodeApi = {
