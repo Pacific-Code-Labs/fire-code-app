@@ -70,7 +70,8 @@ for (const file of fs.existsSync(contentDir) ? fs.readdirSync(contentDir).filter
       for (const l of LANGS) if (!node[l].trim()) errors.push(`${file}: empty ${l} at ${where}`);
       return;
     }
-    for (const [k, v] of Object.entries(node)) visit(v, where ? `${where}.${k}` : k);
+    // `*Url` fields hold media references (`{ es, en }` per-language images) and may be empty.
+    for (const [k, v] of Object.entries(node)) if (!/Url$/.test(k)) visit(v, where ? `${where}.${k}` : k);
   })(JSON.parse(fs.readFileSync(path.join(contentDir, file), "utf8")), "");
 }
 
