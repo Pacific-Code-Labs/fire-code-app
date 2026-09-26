@@ -1,0 +1,30 @@
+{
+  "title": { "es": "Soporte", "en": "Support" },
+  "intro": {
+    "es": "Cuéntanos qué salió mal o qué necesitas. Respondemos aquí y verás la respuesta en cuanto llegue.",
+    "en": "Tell us what went wrong or what you need. We answer here and you see the reply as soon as it arrives."
+  },
+  "empty": {
+    "es": "Todavía no tienes solicitudes de soporte.",
+    "en": "You have no support requests yet."
+  },
+  "newIntro": {
+    "es": "Describe el problema con el mayor detalle posible. Las capturas de pantalla ayudan mucho.",
+    "en": "Describe the problem with as much detail as you can. Screenshots help a lot."
+  },
+  "referenceHint": {
+    "es": "Adjuntamos la referencia del error para que el equipo encuentre exactamente qué pasó.",
+    "en": "We attached the error reference, so our team can find exactly what happened."
+  },
+  "closedNotice": {
+    "es": "Esta solicitud está cerrada. Abre una nueva si todavía necesitas ayuda.",
+    "en": "This request is closed. Open a new one if you still need help."
+  },
+  "categories": [
+    { "id": "evaluation", "label": { "es": "Una evaluación falló o se ve mal", "en": "An evaluation failed or looks wrong" } },
+    { "id": "projects", "label": { "es": "Mis proyectos", "en": "My projects" } },
+    { "id": "account", "label": { "es": "Mi cuenta o el inicio de sesión", "en": "My account or sign-in" } },
+    { "id": "billing", "label": { "es": "Planes y facturación", "en": "Plans and billing" } },
+    { "id": "general", "label": { "es": "Otra cosa", "en": "Something else" } }
+  ]
+}

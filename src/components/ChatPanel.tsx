@@ -32,6 +32,8 @@ import { NeedsInfoForm } from "@/components/assistant/NeedsInfoForm";
 import { type DemoScenario, type DemoScenarioParams } from "@/lib/demoScenarios";
 import { getAssistantCapabilities } from "@/lib/assistantCapabilities";
 import { cn } from "@/lib/utils";
+import { errorReference } from "@/lib/error-reference";
+import { ReportProblemLink } from "@/components/ReportProblemLink";
 
 /** Read the HTTP status off an Amplify/fetch error, tolerating shapes. */
 function readErrorStatus(err: unknown): number | undefined {
@@ -69,6 +71,8 @@ export interface Msg {
   payload?: EvaluateResponse | ProjectCreatedData | MessageData | DemoLimitResponse | PromptPayload | NeedsInfoData | ElectricalLoadData;
   /** For a one-at-a-time "question" turn: the submit button label. */
   submitLabel?: string;
+  /** Server-error reference (X-Request-Id) for "Report this problem". */
+  reference?: string;
 }
 
 interface Props {
@@ -281,7 +285,9 @@ export function ChatPanel({ buildingType, usage, areaM2, floors, occupants, ceil
     } else {
       text = tr.chat_err_network;
     }
-    setMessages((m) => [...m, { role: "assistant", type: "error", text }]);
+    // Only server failures carry a reference worth reporting (4xx are the user's to fix).
+    const reference = status !== undefined && status >= 500 ? errorReference(err) : undefined;
+    setMessages((m) => [...m, { role: "assistant", type: "error", text, reference }]);
     if (err) console.error("Assistant error:", err, "status:", status);
   };
 
@@ -711,6 +717,7 @@ export function ChatPanel({ buildingType, usage, areaM2, floors, occupants, ceil
                 )}
               >
                 {m.role === "user" ? <TextMessage text={m.text} /> : renderAssistantBody(m)}
+                {m.type === "error" && m.reference && <ReportProblemLink reference={m.reference} category="evaluation" />}
               </div>
             </div>
           );

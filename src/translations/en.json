@@ -566,6 +566,29 @@
       "elec_save": "Save project",
       "elec_saved": "Electrical project saved",
       "elec_save_error": "Could not save the project"
+    },
+    "support": {
+      "nav_support": "Support",
+      "support_new": "New request",
+      "support_load_error": "Could not load your request.",
+      "support_category": "What do you need help with?",
+      "support_subject": "Subject",
+      "support_description": "Description",
+      "support_screenshots": "Screenshots (optional)",
+      "support_file_rules": "Up to 5 JPG, PNG, WebP or GIF images, 5 MB each.",
+      "support_send": "Send request",
+      "support_reference": "Reference",
+      "support_team": "Support team",
+      "support_you": "You",
+      "support_reply_placeholder": "Write your reply…",
+      "support_send_reply": "Send reply",
+      "support_add_screenshot": "Add screenshot",
+      "support_report": "Report this problem",
+      "support_reply_toast": "Support replied to your request.",
+      "support_status_open": "Open",
+      "support_status_in_progress": "In progress",
+      "support_status_resolved": "Resolved",
+      "support_status_closed": "Closed"
     }
   }
 }

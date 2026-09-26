@@ -13,15 +13,15 @@
 //
 // `initBrand()` runs once at boot from main.tsx.
 import { applyTheme, getTheme, DEFAULT_THEME_ID } from "@pacific-code-labs/fire-code-design-system";
-import brandingData from "@/content/branding.json";
-import themesData from "@/content/themes.json";
+import { getBranding, getThemes, type ThemesContent } from "@/repositories/content.repository";
 import { resolveAssetUrl } from "@/lib/media";
 
-type ThemeEntry = (typeof themesData.themes)[number];
+type ThemeEntry = ThemesContent["themes"][number];
 
 /** The currently-active named theme from themes.json (falls back to the first). */
 export function activeTheme(): ThemeEntry {
-  return themesData.themes.find((t) => t.isActive) ?? themesData.themes[0];
+  const { themes } = getThemes();
+  return themes.find((t) => t.isActive) ?? themes[0];
 }
 
 /** Map a content theme entry to a known DS engine theme id. */
@@ -72,5 +72,5 @@ export function initBrand(): void {
   const stored = localStorage.getItem("firecode.theme");
   const isDark = stored ? stored === "dark" : document.documentElement.classList.contains("dark");
   applyActiveTheme(isDark);
-  applyFavicon(brandingData.faviconUrl);
+  applyFavicon(getBranding().faviconUrl);
 }

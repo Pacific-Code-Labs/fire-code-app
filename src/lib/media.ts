@@ -9,7 +9,7 @@
 //
 // `media.ts` is import-safe in the PUBLIC bundle (the resolvers are used by
 // public components/SEO); the admin-only MUTATORS live in `media-upload.ts`.
-import seo from "@/content/seo.json";
+import { getSeo } from "@/repositories/content.repository";
 
 export type MediaKind = "image" | "video" | "audio";
 export type MediaSource = "local" | "external";
@@ -66,7 +66,7 @@ export const mediaRef = (i: MediaItem): string =>
 export function absoluteAssetUrl(ref?: string | null): string {
   if (!ref) return "";
   if (/^https?:\/\//i.test(ref) || ref.startsWith("data:")) return ref;
-  const site = (seo.siteUrl ?? "").replace(/\/$/, "");
+  const site = (getSeo().siteUrl ?? "").replace(/\/$/, "");
   return site + basePrefix() + (ref.startsWith("/") ? ref : `/${ref}`);
 }
 

@@ -14,7 +14,17 @@ import "./index.css";
 // dark/light mode itself is still owned by contexts/ThemeContext, which
 // re-applies the theme in the correct mode on toggle.
 import { initBrand } from "./lib/brand-theme";
+import { initContent, refreshContent } from "./repositories/content.repository";
 
+// Stale-while-revalidate: render at once from the last published copy this browser saw (or the
+// bundled JSON), then fetch the published documents in the background and re-render only when
+// they changed. A cold content API never delays the first paint.
+initContent();
 initBrand();
-
-createRoot(document.getElementById("root")!).render(<App />);
+const root = createRoot(document.getElementById("root")!);
+root.render(<App />);
+void refreshContent().then((changed) => {
+  if (!changed) return;
+  initBrand();
+  root.render(<App key="published" />);
+});

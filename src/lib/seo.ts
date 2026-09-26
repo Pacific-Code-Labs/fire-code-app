@@ -10,13 +10,13 @@
 // /<lang>/<slug> URL (via localizedPath), matching the prerendered Layer-1 HTML;
 // hreflang alternates point at each language's prefixed URL.
 import { useEffect } from "react";
-import seo from "@/content/seo.json";
+import { getSeo, type SeoContent } from "@/repositories/content.repository";
 import type { Lang } from "@/lib/i18n";
 import { absoluteAssetUrl } from "@/lib/media";
 import { localizedPath } from "@/lib/paths";
 
-export type SeoContent = typeof seo;
-export type SeoRoute = keyof typeof seo.pages;
+export type { SeoContent };
+export type SeoRoute = keyof SeoContent["pages"];
 
 export const SEO_LANGS: Lang[] = ["es", "en"];
 
@@ -28,7 +28,7 @@ export interface ResolvedSeo {
   noindex?: boolean;
 }
 
-const siteUrl = (): string => (seo.siteUrl ?? "").replace(/\/$/, "");
+const siteUrl = (): string => (getSeo().siteUrl ?? "").replace(/\/$/, "");
 
 /** Path on the public site for a route (home → "/", others → "/<route>"). */
 export function routePath(route: string): string {
@@ -37,6 +37,7 @@ export function routePath(route: string): string {
 
 /** Resolve the head metadata for a route + language from seo.json. */
 export function resolveSeo(route: string, lang: Lang, noindex = false): ResolvedSeo {
+  const seo = getSeo();
   const page = (seo.pages as Record<string, Record<Lang, { title: string; description: string }>>)[route];
   const meta = page?.[lang] ?? page?.es;
   return {

@@ -566,6 +566,29 @@
       "elec_save": "Guardar proyecto",
       "elec_saved": "Proyecto eléctrico guardado",
       "elec_save_error": "No se pudo guardar el proyecto"
+    },
+    "support": {
+      "nav_support": "Soporte",
+      "support_new": "Nueva solicitud",
+      "support_load_error": "No se pudo cargar tu solicitud.",
+      "support_category": "¿Con qué necesitas ayuda?",
+      "support_subject": "Asunto",
+      "support_description": "Descripción",
+      "support_screenshots": "Capturas de pantalla (opcional)",
+      "support_file_rules": "Hasta 5 imágenes JPG, PNG, WebP o GIF de 5 MB como máximo.",
+      "support_send": "Enviar solicitud",
+      "support_reference": "Referencia",
+      "support_team": "Equipo de soporte",
+      "support_you": "Tú",
+      "support_reply_placeholder": "Escribe tu respuesta…",
+      "support_send_reply": "Enviar respuesta",
+      "support_add_screenshot": "Agregar captura",
+      "support_report": "Reportar este problema",
+      "support_reply_toast": "Soporte respondió a tu solicitud.",
+      "support_status_open": "Abierta",
+      "support_status_in_progress": "En progreso",
+      "support_status_resolved": "Resuelta",
+      "support_status_closed": "Cerrada"
     }
   }
 }

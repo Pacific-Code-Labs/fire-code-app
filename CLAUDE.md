@@ -210,6 +210,21 @@ reader. Local DS work: `pnpm link ../design-system` (drop the resulting `pnpm.ov
   `tr` dictionary (`lib/i18n.ts`), so **keys are unique across sections** (the build checks it).
   New shared strings go to `app.common`. Services stay language-free (return empty copy and let the
   component pick `tr.*`).
-- `src/content/*.json` (`branding`, `media`, `seo`, `themes`): editable in the admin console (online
-  CMS, site `app`); published documents override the bundled copy at runtime.
+- `src/content/*.json` (`branding`, `media`, `seo`, `themes`, `support`): editable in the admin
+  console (online CMS, site `app`). `repositories/content.repository.ts` is the only importer: it
+  returns the published document when there is one (`initContent()` + background `refreshContent()`
+  in `main.tsx`, stale-while-revalidate), else the bundled file. A new file must also be added to
+  the admin manifest (`APP_PAGES`) and seeded in public-be.
+
+## 12. Support area (support-incidents)
+
+- Routes `/:lang/support`, `/support/new`, `/support/:id` (RequireAuth) → `fire-code-support-be`
+  tenant API at `VITE_SUPPORT_API_URL` (`support.fire-code.jcampos.dev`, app pool **ID token**,
+  `repositories/support.repository.ts`). Evidence: presigned PUT to a private bucket + confirm.
+- "Report this problem": a 5xx carries `X-Request-Id` / `reference` (`lib/error-reference.ts`);
+  `components/ReportProblemLink.tsx` opens `/support/new?reference=…&category=…&from=…`.
+  Wired into the assistant's error messages (ChatPanel); reuse it on any server-error state.
+- Live updates: `hooks/useRealtimeEvents.ts` (AppSync Events, `VITE_EVENTS_HTTP_URL`) subscribes to
+  `/support/<sub>` and `/notifications/<sub>` from `DashboardLayout`; hints only refetch
+  (`["support", userId]`), 60 s polling covers a dropped socket.
 - **Never hard-code user-visible text** in components — `pnpm check:text` fails the build.

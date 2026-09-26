@@ -26,6 +26,9 @@ import { RequireAuth } from "@/components/RequireAuth";
 import { LangLayout } from "@/components/LangLayout";
 import { DEFAULT_LANG, localizedPath, persistedLang, stripLangPrefix } from "@/lib/paths";
 import Evaluator from "./pages/Evaluator.tsx";
+import SupportList from "./pages/SupportList.tsx";
+import SupportNew from "./pages/SupportNew.tsx";
+import SupportDetail from "./pages/SupportDetail.tsx";
 
 // fire-code-app: the signed-in product at app.fire-code.jcampos.dev. The marketing
 // landing (fire-code.jcampos.dev, repo fire-safety-advisor) and the private admin
@@ -79,6 +82,9 @@ const App = () => (
                   <Route path="projects/new" element={<RequireAuth><NewProject /></RequireAuth>} />
                   <Route path="projects/electrical" element={<RequireAuth><ElectricalProject /></RequireAuth>} />
                   <Route path="projects/:id" element={<RequireAuth><ProjectDetail /></RequireAuth>} />
+                  <Route path="support" element={<RequireAuth><SupportList /></RequireAuth>} />
+                  <Route path="support/new" element={<RequireAuth><SupportNew /></RequireAuth>} />
+                  <Route path="support/:id" element={<RequireAuth><SupportDetail /></RequireAuth>} />
                   <Route path="pricing" element={<Pricing />} />
                   {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                   <Route path="*" element={<NotFound />} />

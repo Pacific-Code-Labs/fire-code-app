@@ -1,6 +1,6 @@
 import { ReactNode, useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { ChevronDown, Flame, LayoutDashboard, FolderKanban, Sparkles, LogOut, Languages, User, ShieldCheck } from "lucide-react";
+import { ChevronDown, Flame, LayoutDashboard, FolderKanban, Sparkles, LogOut, Languages, User, ShieldCheck, LifeBuoy } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -22,12 +22,13 @@ import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLang } from "@/contexts/LangContext";
 import { usePermissions } from "@/hooks/useRbac";
+import { useRealtimeEvents } from "@/hooks/useRealtimeEvents";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { GlobalAssistant } from "@/components/GlobalAssistant";
 import { localizedPath, runLangSwitch, stripLangPrefix } from "@/lib/paths";
 
 /** Sidebar nav identifiers (one per item). */
-type NavId = "dashboard" | "projects" | "evaluator" | "electrical" | "roles";
+type NavId = "dashboard" | "projects" | "evaluator" | "electrical" | "roles" | "support";
 
 /**
  * NAV_PERMISSION (FCR-061) — maps each sidebar item to the [module, submodule]
@@ -38,7 +39,8 @@ type NavId = "dashboard" | "projects" | "evaluator" | "electrical" | "roles";
  *   evaluator  → projects/evaluator
  *   roles      → admin/roles   (the new RBAC management item)
  */
-const NAV_PERMISSION: Record<NavId, [string, string]> = {
+// `support` has no RBAC mapping: every signed-in user can ask for help.
+const NAV_PERMISSION: Partial<Record<NavId, [string, string]>> = {
   dashboard: ["panel", "overview"],
   projects: ["projects", "projects"],
   evaluator: ["projects", "evaluator"],
@@ -82,6 +84,7 @@ function AppSidebar() {
   // project. This removes the "two repeated modules" overlap with Projects.
   const tools: NavItem[] = [
     { id: "evaluator", titleKey: "nav_evaluator", url: "/dashboard/evaluator", icon: Sparkles },
+    { id: "support", titleKey: "nav_support", url: "/support", icon: LifeBuoy },
   ];
   const admin: NavItem[] = [
     { id: "roles", titleKey: "nav_roles", url: "/dashboard/roles", icon: ShieldCheck },
@@ -205,6 +208,9 @@ export function DashboardLayout({ children }: { children: ReactNode }) {
   const location = useLocation();
   const navigate = useNavigate();
   const mainRef = useRef<HTMLElement>(null);
+  const { user } = useAuth();
+  // Live support updates (AppSync Events) while any signed-in page is open.
+  useRealtimeEvents(user?.userId);
 
   // Title + active route are computed off the path WITHOUT its /:lang prefix.
   const rest = stripLangPrefix(location.pathname).rest;
@@ -217,9 +223,11 @@ export function DashboardLayout({ children }: { children: ReactNode }) {
     "/dashboard/profile": tr.nav_profile,
     "/projects": tr.nav_projects,
     "/projects/new": tr.new_project,
+    "/support": tr.nav_support,
   };
   const title =
-    titleMap[rest] ?? (rest.startsWith("/projects/") ? tr.nav_projects : tr.nav_dashboard);
+    titleMap[rest] ??
+    (rest.startsWith("/projects/") ? tr.nav_projects : rest.startsWith("/support") ? tr.nav_support : tr.nav_dashboard);
 
   // Language toggle navigates to the same page under the other lang prefix
   // (wrapped in the lang animation); LangLayout's effect then syncs the context.
