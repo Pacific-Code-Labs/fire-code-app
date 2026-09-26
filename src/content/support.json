@@ -1,5 +1,8 @@
 {
-  "title": { "es": "Soporte", "en": "Support" },
+  "title": {
+    "es": "Soporte",
+    "en": "Support"
+  },
   "intro": {
     "es": "Cuéntanos qué salió mal o qué necesitas. Respondemos aquí y verás la respuesta en cuanto llegue.",
     "en": "Tell us what went wrong or what you need. We answer here and you see the reply as soon as it arrives."
@@ -21,10 +24,40 @@
     "en": "This request is closed. Open a new one if you still need help."
   },
   "categories": [
-    { "id": "evaluation", "label": { "es": "Una evaluación falló o se ve mal", "en": "An evaluation failed or looks wrong" } },
-    { "id": "projects", "label": { "es": "Mis proyectos", "en": "My projects" } },
-    { "id": "account", "label": { "es": "Mi cuenta o el inicio de sesión", "en": "My account or sign-in" } },
-    { "id": "billing", "label": { "es": "Planes y facturación", "en": "Plans and billing" } },
-    { "id": "general", "label": { "es": "Otra cosa", "en": "Something else" } }
+    {
+      "id": "evaluation",
+      "label": {
+        "es": "Una evaluación falló o se ve mal",
+        "en": "An evaluation failed or looks wrong"
+      }
+    },
+    {
+      "id": "projects",
+      "label": {
+        "es": "Mis proyectos",
+        "en": "My projects"
+      }
+    },
+    {
+      "id": "account",
+      "label": {
+        "es": "Mi cuenta o el inicio de sesión",
+        "en": "My account or sign-in"
+      }
+    },
+    {
+      "id": "billing",
+      "label": {
+        "es": "Planes y facturación",
+        "en": "Plans and billing"
+      }
+    },
+    {
+      "id": "general",
+      "label": {
+        "es": "Otra cosa",
+        "en": "Something else"
+      }
+    }
   ]
 }
