@@ -1,0 +1,45 @@
+{
+  "siteUrl": "https://fire-code.jcampos.dev",
+  "defaultTitle": {
+    "es": "FireCode CR — Asistente NFPA para Costa Rica",
+    "en": "FireCode CR — NFPA Assistant for Costa Rica"
+  },
+  "defaultDescription": {
+    "es": "Asistente bilingüe para interpretar normas NFPA de protección contra incendios y código eléctrico en Costa Rica.",
+    "en": "Bilingual assistant to interpret NFPA fire-protection standards and the electrical code in Costa Rica."
+  },
+  "ogImage": "/og-image.png",
+  "googleAnalyticsId": "",
+  "pages": {
+    "home": {
+      "es": {
+        "title": "FireCode CR — Asistente NFPA para Costa Rica",
+        "description": "Interprete códigos contra incendios en segundos. IA + reglas deterministas con contexto local de Costa Rica."
+      },
+      "en": {
+        "title": "FireCode CR — NFPA Assistant for Costa Rica",
+        "description": "Interpret fire codes in seconds. AI plus a deterministic rule engine with Costa Rica context built in."
+      }
+    },
+    "demo": {
+      "es": {
+        "title": "Demo — FireCode CR",
+        "description": "Pruebe el asistente FireCode CR: describa un edificio y obtenga requisitos NFPA aplicables."
+      },
+      "en": {
+        "title": "Demo — FireCode CR",
+        "description": "Try the FireCode CR assistant: describe a building and get the applicable NFPA requirements."
+      }
+    },
+    "pricing": {
+      "es": {
+        "title": "Planes y precios — FireCode CR",
+        "description": "Empiece gratis con FireCode CR: 20 evaluaciones con IA al mes y 3 proyectos guardados. Planes de pago próximamente."
+      },
+      "en": {
+        "title": "Plans & pricing — FireCode CR",
+        "description": "Start free with FireCode CR: 20 AI evaluations per month and 3 saved projects. Paid plans coming soon."
+      }
+    }
+  }
+}

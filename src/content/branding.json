@@ -1,0 +1,13 @@
+{
+  "companyName": "FireCode",
+  "companySuffix": "CR",
+  "logoIconName": "flame",
+  "logoUrl": "",
+  "logoUrlDark": "",
+  "faviconUrl": "/favicon.ico",
+  "ogImage": "/og-image.png",
+  "tagline": {
+    "es": "Asistente NFPA para Costa Rica",
+    "en": "NFPA Assistant for Costa Rica"
+  }
+}

@@ -1,0 +1,244 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* FireCode CR — Dark technical dashboard design system.
+   All colors HSL. Semantic tokens only. */
+
+@layer base {
+  :root {
+    /* Light theme */
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 8 90% 54%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 8 95% 62%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 42%;
+
+    --accent: 200 95% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 88%;
+    --input: 214 32% 90%;
+    --ring: 8 90% 54%;
+
+    --radius: 0.6rem;
+
+    --cat-initiation: 0 84% 55%;
+    --cat-notification: 42 95% 48%;
+    --cat-monitoring: 210 95% 50%;
+    --cat-actuation: 142 70% 40%;
+
+    --risk-high: 0 84% 55%;
+    --risk-medium: 38 92% 48%;
+    --risk-low: 142 65% 40%;
+
+    --gradient-hero: radial-gradient(ellipse at top, hsl(8 90% 54% / 0.10), transparent 60%),
+                     linear-gradient(180deg, hsl(0 0% 100%), hsl(210 40% 98%));
+    --gradient-panel: linear-gradient(160deg, hsl(0 0% 100%), hsl(210 40% 98%));
+    --shadow-glow: 0 0 0 1px hsl(8 90% 54% / 0.20), 0 12px 40px -12px hsl(8 90% 54% / 0.30);
+    --shadow-panel: 0 10px 30px -15px hsl(222 47% 11% / 0.15);
+
+    --sidebar-background: 210 40% 98%;
+    --sidebar-foreground: 222 30% 25%;
+    --sidebar-primary: 8 90% 54%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 40% 94%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 214 32% 88%;
+    --sidebar-ring: 8 90% 54%;
+  }
+
+  .dark {
+    --background: 222 30% 7%;
+    --foreground: 210 40% 96%;
+
+    --card: 222 28% 10%;
+    --card-foreground: 210 40% 96%;
+
+    --popover: 222 28% 10%;
+    --popover-foreground: 210 40% 96%;
+
+    --primary: 8 90% 58%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 8 95% 65%;
+
+    --secondary: 222 25% 14%;
+    --secondary-foreground: 210 40% 96%;
+
+    --muted: 222 22% 14%;
+    --muted-foreground: 215 18% 65%;
+
+    --accent: 200 95% 55%;
+    --accent-foreground: 222 47% 8%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 222 25% 18%;
+    --input: 222 25% 16%;
+    --ring: 8 90% 58%;
+
+    --cat-initiation: 0 84% 60%;
+    --cat-notification: 42 95% 58%;
+    --cat-monitoring: 210 95% 60%;
+    --cat-actuation: 142 70% 48%;
+
+    --risk-high: 0 84% 60%;
+    --risk-medium: 38 92% 55%;
+    --risk-low: 142 65% 48%;
+
+    --gradient-hero: radial-gradient(ellipse at top, hsl(8 90% 58% / 0.18), transparent 60%),
+                     linear-gradient(180deg, hsl(222 30% 7%), hsl(222 35% 5%));
+    --gradient-panel: linear-gradient(160deg, hsl(222 28% 11%), hsl(222 30% 8%));
+    --shadow-glow: 0 0 0 1px hsl(8 90% 58% / 0.25), 0 12px 40px -12px hsl(8 90% 58% / 0.45);
+    --shadow-panel: 0 10px 30px -15px hsl(0 0% 0% / 0.6);
+
+    --sidebar-background: 222 32% 6%;
+    --sidebar-foreground: 210 30% 80%;
+    --sidebar-primary: 8 90% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 25% 12%;
+    --sidebar-accent-foreground: 210 40% 96%;
+    --sidebar-border: 222 25% 14%;
+    --sidebar-ring: 8 90% 58%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  html, body, #root {
+    height: 100%;
+    min-height: 100dvh; /* dvh adjusts dynamically as mobile browser chrome shows/hides */
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    background: var(--gradient-hero);
+    background-attachment: scroll;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+@layer utilities {
+  .panel {
+    background: var(--gradient-panel);
+    box-shadow: var(--shadow-panel);
+    @apply border border-border rounded-lg;
+  }
+  .glow-red { box-shadow: var(--shadow-glow); }
+  .text-cat-initiation   { color: hsl(var(--cat-initiation)); }
+  .text-cat-notification { color: hsl(var(--cat-notification)); }
+  .text-cat-monitoring   { color: hsl(var(--cat-monitoring)); }
+  .text-cat-actuation    { color: hsl(var(--cat-actuation)); }
+  .bg-cat-initiation\/10   { background-color: hsl(var(--cat-initiation) / 0.10); }
+  .bg-cat-notification\/10 { background-color: hsl(var(--cat-notification) / 0.10); }
+  .bg-cat-monitoring\/10   { background-color: hsl(var(--cat-monitoring) / 0.10); }
+  .bg-cat-actuation\/10    { background-color: hsl(var(--cat-actuation) / 0.10); }
+  .border-cat-initiation\/30   { border-color: hsl(var(--cat-initiation) / 0.30); }
+  .border-cat-notification\/30 { border-color: hsl(var(--cat-notification) / 0.30); }
+  .border-cat-monitoring\/30   { border-color: hsl(var(--cat-monitoring) / 0.30); }
+  .border-cat-actuation\/30    { border-color: hsl(var(--cat-actuation) / 0.30); }
+  .scanline {
+    background-image: repeating-linear-gradient(0deg, hsl(0 0% 100% / 0.015) 0 1px, transparent 1px 3px);
+  }
+  /* Custom scrollbar — webkit (Chrome, Edge, Safari) */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.6);
+  }
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) hsl(var(--background));
+  }
+
+  @media print {
+    body { background: white !important; color: black !important; }
+    .no-print { display: none !important; }
+    .panel { background: white !important; box-shadow: none !important; border: 1px solid #ccc !important; }
+  }
+
+  /* ── Animations ──────────────────────────────────────────────────────
+     Theme / language / page-transition motion. All disabled under
+     prefers-reduced-motion (single override block at the end). */
+
+  /* Theme colour crossfade — applied transiently to <html> on theme change. */
+  .theme-transition,
+  .theme-transition * {
+    transition: color 0.3s ease,
+                background-color 0.3s ease,
+                border-color 0.3s ease,
+                fill 0.3s ease,
+                stroke 0.3s ease;
+  }
+
+  /* Language swap animation. */
+  @keyframes langOut {
+    from { opacity: 1; transform: scale(1);     filter: blur(0); }
+    to   { opacity: 0; transform: scale(0.985); filter: blur(4px); }
+  }
+  @keyframes langIn {
+    from { opacity: 0; transform: scale(0.985); filter: blur(4px); }
+    to   { opacity: 1; transform: scale(1);     filter: blur(0); }
+  }
+  .lang-anim-out { animation: langOut 0.22s ease forwards; }
+  .lang-anim-in  { animation: langIn 0.32s ease forwards; }
+
+  /* Page enter — re-applied on each route change by <PageTransition>. */
+  @keyframes pageEnter {
+    from { opacity: 0; transform: translateY(4px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .page-enter { animation: pageEnter 0.28s ease both; }
+
+  /* FCR-110: demo input flash — when a capability card overwrites the building
+     inputs, pulse a primary ring + border so the user notices the change. */
+  @keyframes fieldFlash {
+    0%   { box-shadow: 0 0 0 0 hsl(var(--primary) / 0); }
+    25%  { box-shadow: 0 0 0 3px hsl(var(--primary) / 0.45); }
+    100% { box-shadow: 0 0 0 0 hsl(var(--primary) / 0); }
+  }
+  .field-flash {
+    animation: fieldFlash 1.1s ease-out;
+    border-color: hsl(var(--primary)) !important;
+    transition: border-color 0.4s ease;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .theme-transition,
+    .theme-transition *,
+    .lang-anim-out,
+    .lang-anim-in,
+    .page-enter,
+    .field-flash {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+}

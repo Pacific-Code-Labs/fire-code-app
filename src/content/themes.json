@@ -1,0 +1,27 @@
+{
+  "activeThemeId": "firecode",
+  "themes": [
+    {
+      "id": "firecode",
+      "name": "FireCode CR",
+      "isActive": true,
+      "engineThemeId": "firecode",
+      "colors": {
+        "primary": "#f23a1e",
+        "accent": "#0aa7e6",
+        "background": "#0d1117"
+      }
+    },
+    {
+      "id": "firecode-light",
+      "name": "FireCode Light",
+      "isActive": false,
+      "engineThemeId": "firecode-light",
+      "colors": {
+        "primary": "#f23a1e",
+        "accent": "#0aa7e6",
+        "background": "#fbfcfe"
+      }
+    }
+  ]
+}

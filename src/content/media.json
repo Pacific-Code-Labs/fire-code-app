@@ -1,0 +1,32 @@
+{
+  "items": [
+    {
+      "id": "media-og-image",
+      "kind": "image",
+      "source": "local",
+      "path": "/og-image.png",
+      "filename": "og-image.png",
+      "mime": "image/png",
+      "size": 0,
+      "alt": {
+        "es": "Tarjeta social de FireCode CR",
+        "en": "FireCode CR social share card"
+      },
+      "createdAt": "2026-06-16T00:00:00Z"
+    },
+    {
+      "id": "media-favicon",
+      "kind": "image",
+      "source": "local",
+      "path": "/favicon.ico",
+      "filename": "favicon.ico",
+      "mime": "image/x-icon",
+      "size": 0,
+      "alt": {
+        "es": "Favicon de FireCode CR",
+        "en": "FireCode CR favicon"
+      },
+      "createdAt": "2026-06-16T00:00:00Z"
+    }
+  ]
+}
