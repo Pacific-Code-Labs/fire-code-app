@@ -4,8 +4,14 @@
   "logoIconName": "flame",
   "logoUrl": "",
   "logoUrlDark": "",
+  "markUrl": "",
   "faviconUrl": "/favicon.ico",
+  "appleTouchIconUrl": "",
   "ogImage": "/og-image.png",
+  "socialCardUrl": {
+    "es": "",
+    "en": ""
+  },
   "tagline": {
     "es": "Asistente NFPA para Costa Rica",
     "en": "NFPA Assistant for Costa Rica"

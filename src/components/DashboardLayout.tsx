@@ -1,6 +1,6 @@
 import { ReactNode, useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { ChevronDown, Flame, LayoutDashboard, FolderKanban, Sparkles, LogOut, Languages, User, ShieldCheck, LifeBuoy } from "lucide-react";
+import { ChevronDown, LayoutDashboard, FolderKanban, Sparkles, LogOut, Languages, User, ShieldCheck, LifeBuoy } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -16,7 +16,8 @@ import {
   SidebarHeader,
   SidebarFooter,
 } from "@/components/ui/sidebar";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@pacific-code-labs/fire-code-design-system";
+import { BrandLogo, Collapsible, CollapsibleContent, CollapsibleTrigger } from "@pacific-code-labs/fire-code-design-system";
+import { getBrandingVM } from "@/services/branding.service";
 import { NavLink } from "@/components/NavLink";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
@@ -58,6 +59,7 @@ interface NavItem {
 
 function AppSidebar() {
   const { lang, tr } = useLang();
+  const brand = getBrandingVM(lang);
   const { can, isReady } = usePermissions();
   const location = useLocation();
   // The current route stripped of its /:lang prefix — for active-group detection.
@@ -145,12 +147,20 @@ function AppSidebar() {
       <SidebarRail />
       <SidebarHeader>
         <Link to={localizedPath(lang, "/")} className="flex items-center gap-2 px-2 py-1">
-          <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary/10 border border-primary/30">
-            <Flame className="h-4 w-4 text-primary" />
-          </div>
-          <div className="text-sm font-bold tracking-tight group-data-[collapsible=icon]:hidden">
-            FireCode <span className="text-primary">CR</span>
-          </div>
+          {/* Collapsed sidebar: the mark; expanded: the wordmark (or name) from branding. */}
+          <BrandLogo name={brand.companyName} markUrl={brand.markUrl} Icon={brand.LogoIcon} variant="mark" className="hidden group-data-[collapsible=icon]:inline-flex" />
+          <span className="group-data-[collapsible=icon]:hidden">
+            {brand.logoUrl ? (
+              <BrandLogo name={brand.companyName} logoUrl={brand.logoUrl} logoUrlDark={brand.logoUrlDark} imgClassName="h-7" />
+            ) : (
+              <span className="flex items-center gap-2">
+                <BrandLogo name={brand.companyName} markUrl={brand.markUrl} Icon={brand.LogoIcon} variant="mark" />
+                <span className="text-sm font-bold tracking-tight">
+                  {brand.companyName} <span className="text-primary">{brand.companySuffix}</span>
+                </span>
+              </span>
+            )}
+          </span>
         </Link>
       </SidebarHeader>
       <SidebarContent>

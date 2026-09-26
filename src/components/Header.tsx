@@ -2,7 +2,7 @@ import { Languages, Home, LayoutDashboard, LogIn, LogOut, Menu } from "lucide-re
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@pacific-code-labs/fire-code-design-system";
+import { BrandLogo, Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@pacific-code-labs/fire-code-design-system";
 import { useLang } from "@/contexts/LangContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -40,17 +40,18 @@ export function Header({ chatButton }: HeaderProps) {
     <header className="sticky top-0 z-30 border-b border-border bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60 no-print">
       <div className="container flex h-16 items-center justify-between">
         <Link to={localizedPath(lang, "/")} className="flex items-center gap-3 hover:opacity-90 transition-opacity">
-          <div className="relative flex h-10 w-10 items-center justify-center rounded-md bg-primary/10 border border-primary/30 glow-red overflow-hidden">
-            {brand.logoUrl ? (
-              <img src={brand.logoUrl} alt="" className="h-full w-full object-contain" />
-            ) : (
-              <brand.LogoIcon className="h-5 w-5 text-primary" aria-hidden />
-            )}
-          </div>
-          <div className="leading-tight">
-            <div className="text-lg font-bold tracking-tight">{brand.companyName} <span className="text-primary">{brand.companySuffix}</span></div>
-            <div className="text-xs text-muted-foreground hidden sm:block">{brand.tagline}</div>
-          </div>
+          {/* Uploaded wordmark (light/dark) when there is one; else mark/icon + name + tagline. */}
+          {brand.logoUrl ? (
+            <BrandLogo name={brand.companyName} logoUrl={brand.logoUrl} logoUrlDark={brand.logoUrlDark} imgClassName="h-9" />
+          ) : (
+            <>
+              <BrandLogo name={brand.companyName} markUrl={brand.markUrl} Icon={brand.LogoIcon} variant="mark" className="h-10 w-10 glow-red" />
+              <div className="leading-tight">
+                <div className="text-lg font-bold tracking-tight">{brand.companyName} <span className="text-primary">{brand.companySuffix}</span></div>
+                <div className="text-xs text-muted-foreground hidden sm:block">{brand.tagline}</div>
+              </div>
+            </>
+          )}
         </Link>
         <div className="flex items-center gap-2">
           {onDemo && (

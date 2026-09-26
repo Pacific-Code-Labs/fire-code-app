@@ -10,7 +10,7 @@
 // /<lang>/<slug> URL (via localizedPath), matching the prerendered Layer-1 HTML;
 // hreflang alternates point at each language's prefixed URL.
 import { useEffect } from "react";
-import { getSeo, type SeoContent } from "@/repositories/content.repository";
+import { getBranding, getSeo, type SeoContent } from "@/repositories/content.repository";
 import type { Lang } from "@/lib/i18n";
 import { absoluteAssetUrl } from "@/lib/media";
 import { localizedPath } from "@/lib/paths";
@@ -46,7 +46,8 @@ export function resolveSeo(route: string, lang: Lang, noindex = false): Resolved
     // Language-prefixed canonical so it matches the real /:lang route + the
     // Layer-1 prerendered URL.
     canonical: siteUrl() + localizedPath(lang, routePath(route)),
-    ogImage: absoluteAssetUrl(seo.ogImage),
+    // Per-language social card from branding (uploaded in the admin), else the seo default.
+    ogImage: absoluteAssetUrl((getBranding() as { socialCardUrl?: Partial<Record<Lang, string>> }).socialCardUrl?.[lang] || seo.ogImage),
     noindex,
   };
 }

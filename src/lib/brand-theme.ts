@@ -60,6 +60,20 @@ export function applyFavicon(ref?: string | null): void {
   link.href = href;
 }
 
+/** Upsert the iOS home-screen icon from branding (optional field). */
+export function applyAppleTouchIcon(ref?: string | null): void {
+  if (typeof document === "undefined") return;
+  const href = resolveAssetUrl(ref);
+  if (!href) return;
+  let link = document.head.querySelector<HTMLLinkElement>("link[rel='apple-touch-icon']");
+  if (!link) {
+    link = document.createElement("link");
+    link.rel = "apple-touch-icon";
+    document.head.appendChild(link);
+  }
+  link.href = href;
+}
+
 /**
  * Boot-time brand init (called once from main.tsx). Applies the active theme in
  * the mode persisted by ThemeContext (default dark) and sets the favicon from
@@ -72,5 +86,7 @@ export function initBrand(): void {
   const stored = localStorage.getItem("firecode.theme");
   const isDark = stored ? stored === "dark" : document.documentElement.classList.contains("dark");
   applyActiveTheme(isDark);
-  applyFavicon(getBranding().faviconUrl);
+  const branding = getBranding() as { faviconUrl?: string; appleTouchIconUrl?: string };
+  applyFavicon(branding.faviconUrl);
+  applyAppleTouchIcon(branding.appleTouchIconUrl);
 }

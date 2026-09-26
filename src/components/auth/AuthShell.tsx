@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
-import { Flame } from "lucide-react";
-import { Card, CardBody, CardHeader, CardTitle, CardDescription } from "@pacific-code-labs/fire-code-design-system";
+import { BrandLogo, Card, CardBody, CardHeader, CardTitle, CardDescription } from "@pacific-code-labs/fire-code-design-system";
+import { useLang } from "@/contexts/LangContext";
+import { getBrandingVM } from "@/services/branding.service";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 /**
@@ -27,6 +28,8 @@ export function AuthShell({
   /** Optional footer area below the card body (links, etc.). */
   footer?: ReactNode;
 }) {
+  const { lang } = useLang();
+  const brand = getBrandingVM(lang);
   return (
     <div className="min-h-[100dvh] grid place-items-center bg-background px-4 py-10 relative">
       <div className="absolute top-4 right-4">
@@ -35,12 +38,15 @@ export function AuthShell({
       <div className="w-full max-w-md">
         {/* Brand lockup only (not a link): "back" on each screen leads to the landing. */}
         <div className="flex items-center gap-3 justify-center mb-6">
-          <div className="relative flex h-10 w-10 items-center justify-center rounded-md bg-primary/10 border border-primary/30 glow-red">
-            <Flame className="h-5 w-5 text-primary" />
-          </div>
-          <div className="text-lg font-bold tracking-tight">
-            FireCode <span className="text-primary">CR</span>
-          </div>
+          <BrandLogo
+            name={brand.companyName}
+            suffix={brand.companySuffix}
+            logoUrl={brand.logoUrl}
+            logoUrlDark={brand.logoUrlDark}
+            markUrl={brand.markUrl}
+            Icon={brand.LogoIcon}
+            imgClassName="h-10"
+          />
         </div>
 
         <Card>

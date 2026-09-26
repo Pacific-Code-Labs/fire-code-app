@@ -12,6 +12,8 @@ export interface BrandingVM {
   /** Resolved logo image src (light/dark); empty when none uploaded → icon fallback. */
   logoUrl: string;
   logoUrlDark: string;
+  /** Standalone symbol (L3); empty → icon fallback. */
+  markUrl: string;
   tagline: string;
 }
 
@@ -23,6 +25,8 @@ export function getBrandingVM(lang: Lang): BrandingVM {
     LogoIcon: resolveIcon(b.logoIconName),
     logoUrl: resolveAssetUrl(b.logoUrl),
     logoUrlDark: resolveAssetUrl(b.logoUrlDark),
+    // Optional in older published documents: tolerate a missing field.
+    markUrl: resolveAssetUrl((b as { markUrl?: string }).markUrl),
     tagline: pickLang(b.tagline, lang),
   };
 }
