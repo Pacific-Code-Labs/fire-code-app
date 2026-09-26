@@ -21,16 +21,6 @@
         "description": "Interpret fire codes in seconds. AI plus a deterministic rule engine with Costa Rica context built in."
       }
     },
-    "demo": {
-      "es": {
-        "title": "Demo — FireCode CR",
-        "description": "Pruebe el asistente FireCode CR: describa un edificio y obtenga requisitos NFPA aplicables."
-      },
-      "en": {
-        "title": "Demo — FireCode CR",
-        "description": "Try the FireCode CR assistant: describe a building and get the applicable NFPA requirements."
-      }
-    },
     "pricing": {
       "es": {
         "title": "Planes y precios — FireCode CR",

@@ -184,6 +184,8 @@ export function ChatPanel({ buildingType, usage, areaM2, floors, occupants, ceil
   } | null>(null);
 
   useEffect(() => {
+    // Follow the conversation; the empty welcome state stays at the top.
+    if (messages.length === 0 && !isLoading) return;
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
   }, [messages, isLoading]);
 

@@ -1,7 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-router-dom";
+import { useEffect } from "react";
+import { BrowserRouter, Navigate, Route, Routes, useLocation, useParams } from "react-router-dom";
 import { Toaster as Sonner, TooltipProvider } from "@pacific-code-labs/fire-code-design-system";
-import Index from "./pages/Index.tsx";
 import Login from "./pages/Login.tsx";
 import Register from "./pages/Register.tsx";
 import VerifyEmail from "./pages/VerifyEmail.tsx";
@@ -24,7 +24,8 @@ import { ThemeProvider } from "@/contexts/ThemeContext";
 import { AssistantProvider } from "@/contexts/AssistantContext";
 import { RequireAuth } from "@/components/RequireAuth";
 import { LangLayout } from "@/components/LangLayout";
-import { DEFAULT_LANG, localizedPath, persistedLang, stripLangPrefix } from "@/lib/paths";
+import { DEFAULT_LANG, isLang, localizedPath, persistedLang, stripLangPrefix } from "@/lib/paths";
+import { landingHref } from "@/lib/site-links";
 import Evaluator from "./pages/Evaluator.tsx";
 import SupportList from "./pages/SupportList.tsx";
 import SupportNew from "./pages/SupportNew.tsx";
@@ -38,7 +39,7 @@ import SupportDetail from "./pages/SupportDetail.tsx";
 const queryClient = new QueryClient();
 
 /**
- * LegacyRedirect — catches any un-prefixed deep link (e.g. /dashboard, /demo)
+ * LegacyRedirect — catches any un-prefixed deep link (e.g. /dashboard, /projects)
  * and forwards it to the same path under the persisted/Default language prefix.
  * Bare "/" is handled by its own top-level redirect.
  */
@@ -46,6 +47,15 @@ function LegacyRedirect() {
   const location = useLocation();
   const { rest } = stripLangPrefix(location.pathname);
   return <Navigate to={localizedPath(persistedLang(), rest) + location.search + location.hash} replace />;
+}
+
+/** The public demo lives on the landing (fire-code.jcampos.dev/<lang>/demo); old links go there. */
+function DemoRedirect() {
+  const { lang } = useParams();
+  useEffect(() => {
+    window.location.replace(landingHref(lang && isLang(lang) ? lang : DEFAULT_LANG, "demo"));
+  }, [lang]);
+  return null;
 }
 
 const App = () => (
@@ -67,7 +77,7 @@ const App = () => (
                  */}
                 <Route path="/:lang" element={<LangLayout />}>
                   <Route index element={<Navigate to="dashboard" replace />} />
-                  <Route path="demo" element={<Index />} />
+                  <Route path="demo" element={<DemoRedirect />} />
                   <Route path="login" element={<Login />} />
                   <Route path="register" element={<Register />} />
                   <Route path="verify-email" element={<VerifyEmail />} />

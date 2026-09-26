@@ -11,13 +11,11 @@
     "themeToLight": "Cambiar a modo claro",
     "themeToDark": "Cambiar a modo oscuro"
   },
-  "demo": {
-    "assistant": "Asistente",
+  "evaluator": {
     "badge": "NFPA · Costa Rica",
     "heroTitlePrefix": "Interprete normas ",
     "heroTitleHighlight": "NFPA",
     "heroTitleSuffix": " en lenguaje práctico.",
-    "heroSubtitle": "Seleccione el tipo de edificio, ingrese el uso y obtenga los sistemas requeridos clasificados por categoría.",
     "total": "Total:",
     "highRisk": "Riesgo alto",
     "allCategories": "Todas",

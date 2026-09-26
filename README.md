@@ -2,7 +2,7 @@
 
 The signed-in FireCode CR product at **https://app.fire-code.jcampos.dev**: NFPA fire-protection
 guidance for Costa Rica, an AI evaluator, projects (incl. electrical load studies), roles, profile,
-plans, the Support area and a public throttled demo (`/es/demo`).
+plans and the Support area. The public demo lives on the landing (`fire-code.jcampos.dev/es/demo`).
 
 Part of the `Fire-Code-CR` workspace (`fe/app`); the marketing landing is `fire-safety-advisor`
 (`fire-code.jcampos.dev`) and the admin console is `fire-code-admin` (private).

@@ -20,7 +20,6 @@ export function Header({ chatButton }: HeaderProps) {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const { user, signOut } = useAuth();
-  const onDemo = stripLangPrefix(pathname).rest.startsWith("/demo");
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const chrome = tChrome(lang);
@@ -54,14 +53,6 @@ export function Header({ chatButton }: HeaderProps) {
           )}
         </Link>
         <div className="flex items-center gap-2">
-          {onDemo && (
-            <Button asChild variant="ghost" size="sm" className="gap-2 hidden sm:inline-flex">
-              <a href={landingHref(lang)}>
-                <Home className="h-4 w-4" />
-                {chrome.nav.home}
-              </a>
-            </Button>
-          )}
           {chatButton}
           {user ? (
             <>
