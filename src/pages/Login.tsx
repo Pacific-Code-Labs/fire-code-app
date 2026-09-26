@@ -11,6 +11,7 @@ import { AuthShell } from "@/components/auth/AuthShell";
 import { PasswordField } from "@/components/auth/PasswordField";
 import { emailSchema } from "@/lib/authSchemas";
 import { localizedPath } from "@/lib/paths";
+import { landingHref } from "@/lib/site-links";
 
 const loginSchema = z.object({
   email: emailSchema,
@@ -88,9 +89,10 @@ export default function Login() {
               {tr.auth_login_register}
             </Link>
           </div>
-          <Link to={localizedPath(lang, "/")} className="text-muted-foreground hover:text-foreground mt-1">
+          {/* The marketing landing is a separate site (fire-code.jcampos.dev). */}
+          <a href={landingHref(lang)} className="text-muted-foreground hover:text-foreground mt-1">
             {tr.back_home}
-          </Link>
+          </a>
         </div>
       }
     >
