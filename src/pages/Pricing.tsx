@@ -5,7 +5,7 @@
  * synced with BE `config/plans.py`). For a signed-in Free user the Free card is
  * shown as ACTIVE / current plan. Pro + Enterprise are marked "Coming soon"
  * (NO checkout, NO PayPal, NO card fields). Bilingual via LangContext; DS
- * primitives (Card/Badge/Button) from `@pacific-code-labs/fire-code-design-system`.
+ * primitives (Card/Badge/Button) from `@pacific-code-labs/sokol-design-system`.
  */
 import { Link, useNavigate } from "react-router-dom";
 import {
@@ -17,7 +17,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@pacific-code-labs/fire-code-design-system";
+} from "@pacific-code-labs/sokol-design-system";
 import { Check } from "lucide-react";
 import { Header } from "@/components/Header";
 import { useLang } from "@/contexts/LangContext";

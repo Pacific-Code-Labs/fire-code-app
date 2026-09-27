@@ -12,21 +12,21 @@
  * DTO (lowercase string building types + camelCase aliases) lives here.
  *
  * Quota: `create`/`update` surface the BE's HTTP 402 saved-projects limit as a
- * typed `QuotaError` (from fireCodeApi). Call sites catch it and open the
+ * typed `QuotaError` (from sokolApi). Call sites catch it and open the
  * UpgradeModal (FCR-026).
  */
 import { useCallback, useMemo } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useAuth } from "@/contexts/AuthContext";
 import {
-  fireCodeApi,
+  sokolApi,
   BuildingType,
   type ProjectResponse,
   type ProjectBuildingType,
   type ProjectCreateRequest,
   type ProjectUpdateRequest,
   type ElectricalSnapshot,
-} from "@/services/fireCodeApi";
+} from "@/services/sokolApi";
 
 export type RiskLevel = "low" | "medium" | "high";
 
@@ -159,20 +159,20 @@ export function useProjects() {
     queryKey: projectKeys.list(),
     queryFn: async () => {
       // BE caps page_size at 100; the workspace is small, fetch the first page.
-      const res = await fireCodeApi.listProjects({ page: 0, page_size: 100 });
+      const res = await sokolApi.listProjects({ page: 0, page_size: 100 });
       return res.data.map(fromResponse);
     },
     enabled: !!user,
   });
 
   const createMut = useMutation({
-    mutationFn: (input: NewProjectInput) => fireCodeApi.createProject(toCreateBody(input)),
+    mutationFn: (input: NewProjectInput) => sokolApi.createProject(toCreateBody(input)),
     onSuccess: () => qc.invalidateQueries({ queryKey: projectKeys.all }),
   });
 
   const updateMut = useMutation({
     mutationFn: ({ id, patch }: { id: string; patch: Partial<Project> }) =>
-      fireCodeApi.updateProject(id, toUpdateBody(patch)),
+      sokolApi.updateProject(id, toUpdateBody(patch)),
     onSuccess: (_data, vars) => {
       qc.invalidateQueries({ queryKey: projectKeys.list() });
       qc.invalidateQueries({ queryKey: projectKeys.detail(vars.id) });
@@ -180,7 +180,7 @@ export function useProjects() {
   });
 
   const deleteMut = useMutation({
-    mutationFn: (id: string) => fireCodeApi.deleteProject(id),
+    mutationFn: (id: string) => sokolApi.deleteProject(id),
     onSuccess: () => qc.invalidateQueries({ queryKey: projectKeys.all }),
   });
 
@@ -223,7 +223,7 @@ export function useProject(id: string) {
   const query = useQuery({
     queryKey: projectKeys.detail(id),
     queryFn: async () => {
-      const res = await fireCodeApi.getProject(id);
+      const res = await sokolApi.getProject(id);
       return res ? fromResponse(res) : null;
     },
     enabled: !!id,

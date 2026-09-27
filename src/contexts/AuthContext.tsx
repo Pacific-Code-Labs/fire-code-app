@@ -19,9 +19,9 @@ import { setAccessTokenProvider } from "@/services/authToken";
 /**
  * Profile derived from Cognito user attributes.
  *
- * FireCode's backend has NO `/users/{id}/profile` endpoint — it auto-provisions
+ * Sóköl's backend has NO `/users/{id}/profile` endpoint — it auto-provisions
  * the user/org/owner-role from the JWT claims on the first authenticated call
- * (`get_current_context` in fire-code-be `common/auth/identity.py`, FCR-008/021).
+ * (`get_current_context` in sokol-api `common/auth/identity.py`, FCR-008/021).
  * So the editable profile lives entirely in Cognito user attributes
  * (`given_name`, `family_name`, `preferred_username`, `email`, `locale`),
  * unlike the POS reference which round-tripped a markets-api profile row.
@@ -210,7 +210,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   // FCR-010: expose the access-token accessor to the plain API module so
-  // authenticated calls (fireCodeApi.evaluate) can attach the Bearer header.
+  // authenticated calls (sokolApi.evaluate) can attach the Bearer header.
   useEffect(() => {
     setAccessTokenProvider(getAccessToken);
   }, [getAccessToken]);

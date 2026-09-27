@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Building2 } from "lucide-react";
-import { Button } from "@pacific-code-labs/fire-code-design-system";
+import { Button } from "@pacific-code-labs/sokol-design-system";
 import { DashboardLayout } from "@/components/DashboardLayout";
 import { useLang } from "@/contexts/LangContext";
 import { localizedPath } from "@/lib/paths";
@@ -8,9 +8,9 @@ import { localizedPath } from "@/lib/paths";
 /**
  * NewOrganization — a thin informational placeholder at /organizations/new.
  *
- * FireCode does NOT need an FE org-create form: the backend auto-provisions the
+ * Sóköl does NOT need an FE org-create form: the backend auto-provisions the
  * personal organization + owner role + Free subscription on the user's first
- * authenticated call (`get_current_context` in fire-code-be, FCR-008/021). This
+ * authenticated call (`get_current_context` in sokol-api, FCR-008/021). This
  * page just explains that and links back to the dashboard. A real org-management
  * surface (rename / invite members) is future RBAC UI work (FCR-061).
  */

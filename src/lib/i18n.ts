@@ -7,7 +7,7 @@ export type Lang = "es" | "en";
  * FCR-080: the app UI strings are now ADMIN-MANAGED JSON, not burned in code.
  * They live in `src/translations/{es,en}.json` under the `app` namespace,
  * organized into sections (common, navigation, auth, profile, roles, rbac,
- * electrical, demo) and edited in the `fire-code-admin` Translations page
+ * electrical, demo) and edited in the `sokol-admin` Translations page
  * (which writes back here + git-pushes). The `common` section is the shared
  * bucket for strings that don't belong to one screen.
  *

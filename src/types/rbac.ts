@@ -1,5 +1,5 @@
 /**
- * RBAC FE DTOs — mirror of fire-code-be `src/dtos/rbac_dto.py` + `me_dto.py`
+ * RBAC FE DTOs — mirror of sokol-api `src/dtos/rbac_dto.py` + `me_dto.py`
  * (FCR-023 / FCR-061). Response bodies are camelCase (the BE serializes via
  * `by_alias`); request bodies accept camelCase (the BE `populate_by_name`).
  *

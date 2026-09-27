@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
-import { ShellSkeleton } from "@pacific-code-labs/fire-code-design-system";
+import { ShellSkeleton } from "@pacific-code-labs/sokol-design-system";
 import { useLang } from "@/contexts/LangContext";
 import { localizedPath, persistedLang, stripLangPrefix } from "@/lib/paths";
 

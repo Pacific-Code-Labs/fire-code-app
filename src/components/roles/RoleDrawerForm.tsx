@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button, Drawer, FormField, Input } from "@pacific-code-labs/fire-code-design-system";
+import { Button, Drawer, FormField, Input } from "@pacific-code-labs/sokol-design-system";
 import { useLang } from "@/contexts/LangContext";
 import { useMe } from "@/hooks/useMe";
 import {

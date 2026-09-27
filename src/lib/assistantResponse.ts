@@ -8,7 +8,7 @@
  * as { type: "evaluation", data: <response> }.
  */
 
-import type { EvaluateResponse, NeedsInfoData, ElectricalLoadData } from "@/services/fireCodeApi";
+import type { EvaluateResponse, NeedsInfoData, ElectricalLoadData } from "@/services/sokolApi";
 
 export type { NeedsInfoData, ElectricalLoadData };
 

@@ -1,17 +1,17 @@
-# fire-code-app
+# sokol-app
 
-The signed-in FireCode CR product at **https://app.fire-code.jcampos.dev**: NFPA fire-protection
+The signed-in Sóköl product at **https://app.fire-code.jcampos.dev**: NFPA fire-protection
 guidance for Costa Rica, an AI evaluator, projects (incl. electrical load studies), roles, profile,
 plans and the Support area. The public demo lives on the landing (`fire-code.jcampos.dev/es/demo`).
 
-Part of the `Fire-Code-CR` workspace (`fe/app`); the marketing landing is `fire-safety-advisor`
-(`fire-code.jcampos.dev`) and the admin console is `fire-code-admin` (private).
+Part of the `Sokol-CR` workspace (`fe/app`); the marketing landing is `sokol`
+(`fire-code.jcampos.dev`) and the admin console is `sokol-admin` (private).
 
 ## Run locally
 
 ```bash
 pnpm install
-eval "$(bash scripts/load-env-from-ssm.sh dev PACIFIC-PROD --print-exports)"   # SSM /fire-code/dev/web/*
+eval "$(bash scripts/load-env-from-ssm.sh dev PACIFIC-PROD --print-exports)"   # SSM /sokol/dev/web/*
 pnpm dev            # http://127.0.0.1:5174/es
 ```
 

@@ -4,7 +4,7 @@ import { t, type Lang, type Dict } from "@/lib/i18n";
 interface Ctx { lang: Lang; setLang: (l: Lang) => void; tr: Dict; }
 const LangCtx = createContext<Ctx | null>(null);
 
-const STORAGE_KEY = "firecode-lang";
+const STORAGE_KEY = "sokol-lang";
 
 function getInitial(): Lang {
   if (typeof window === "undefined") return "es";

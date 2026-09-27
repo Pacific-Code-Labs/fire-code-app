@@ -1,7 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { BrowserRouter, Navigate, Route, Routes, useLocation, useParams } from "react-router-dom";
-import { Toaster as Sonner, TooltipProvider } from "@pacific-code-labs/fire-code-design-system";
+import { Toaster as Sonner, TooltipProvider } from "@pacific-code-labs/sokol-design-system";
 import Login from "./pages/Login.tsx";
 import Register from "./pages/Register.tsx";
 import VerifyEmail from "./pages/VerifyEmail.tsx";
@@ -31,9 +31,9 @@ import SupportList from "./pages/SupportList.tsx";
 import SupportNew from "./pages/SupportNew.tsx";
 import SupportDetail from "./pages/SupportDetail.tsx";
 
-// fire-code-app: the signed-in product at app.fire-code.jcampos.dev. The marketing
-// landing (fire-code.jcampos.dev, repo fire-safety-advisor) and the private admin
-// console (fire-code-admin) are separate apps; this one has no landing page and no
+// sokol-app: the signed-in product at app.fire-code.jcampos.dev. The marketing
+// landing (fire-code.jcampos.dev, repo sokol) and the private admin
+// console (sokol-admin) are separate apps; this one has no landing page and no
 // admin code. `/:lang` goes to the dashboard (RequireAuth sends guests to login).
 
 const queryClient = new QueryClient();

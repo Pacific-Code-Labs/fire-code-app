@@ -1,7 +1,7 @@
 import { AlertTriangle } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@pacific-code-labs/fire-code-design-system";
-import type { RuleDTO } from "@/services/fireCodeApi";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@pacific-code-labs/sokol-design-system";
+import type { RuleDTO } from "@/services/sokolApi";
 import { cn } from "@/lib/utils";
 import { useLang } from "@/contexts/LangContext";
 import { fmt } from "@/lib/chrome-i18n";

@@ -35,12 +35,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useLang } from "@/contexts/LangContext";
 import {
-  fireCodeApi,
+  sokolApi,
   type ElectricalInputs,
   type ElectricalLoadData,
   type Topology,
   type TopologyPhase,
-} from "@/services/fireCodeApi";
+} from "@/services/sokolApi";
 import { electricalNodeTypes, type ElectricalRFNode } from "./electricalNodes";
 import { topologyToFlow, flowToTopology, layoutNodes } from "./topologyLayout";
 
@@ -103,7 +103,7 @@ function EditorInner({ value, onChange }: Props) {
       special_loads: { ...(base.special_loads ?? {}), other: customOther },
     };
     setIsCalculating(true);
-    fireCodeApi
+    sokolApi
       .postElectricalPreliminary({ inputs, topology })
       .then((result) => onChangeRef.current({ inputs, topology, result }))
       .catch((error) => onChangeRef.current({ inputs, topology, error }))

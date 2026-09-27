@@ -12,7 +12,7 @@ interface Hint {
 }
 
 /**
- * One socket per signed-in user (AppSync Events, events.fire-code.jcampos.dev), subscribed to
+ * One socket per signed-in user (AppSync Events, events.sokol.jcampos.dev), subscribed to
  * the user's own channels: /support/{sub} (ticket updates) and /notifications/{sub} (support
  * replies). Hints carry ids only: each one refetches the support queries. AppSync doesn't
  * buffer, so every (re)connect refetches too; while disconnected the hooks poll every 60 s.

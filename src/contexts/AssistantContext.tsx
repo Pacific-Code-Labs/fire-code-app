@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useCallback, ReactNode } from "react";
 import { type Msg } from "@/components/ChatPanel";
-import { BuildingType } from "@/services/fireCodeApi";
+import { BuildingType } from "@/services/sokolApi";
 
 export interface AssistantInput {
   buildingType?: BuildingType;

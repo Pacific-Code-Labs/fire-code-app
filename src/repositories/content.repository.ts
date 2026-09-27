@@ -1,12 +1,12 @@
 // The ONLY importer of the app's content JSON. Editors change the documents online in the admin
-// console (fire-code-admin → public API, site "app"); the bundled files are the fallback so the
+// console (sokol-admin → public API, site "app"); the bundled files are the fallback so the
 // app never depends on the content API to render (stale-while-revalidate, see main.tsx).
 import branding from "@/content/branding.json";
 import themes from "@/content/themes.json";
 import seo from "@/content/seo.json";
 import media from "@/content/media.json";
 import support from "@/content/support.json";
-import { cachedPublishedContent, loadPublishedContent } from "@pacific-code-labs/fire-code-design-system";
+import { cachedPublishedContent, loadPublishedContent } from "@pacific-code-labs/sokol-design-system";
 
 const env = import.meta.env;
 const PUBLIC_API =

@@ -1,5 +1,5 @@
 // Brand + theme applier (landing-dxp-builder §10) — integrates the DXP content
-// (branding.json + themes.json) with the shared `@pacific-code-labs/fire-code-design-system` theme
+// (branding.json + themes.json) with the shared `@pacific-code-labs/sokol-design-system` theme
 // engine (FCR-003).
 //
 // Reconciliation with the existing light/dark switch: `contexts/ThemeContext`
@@ -12,7 +12,7 @@
 // theme in themes.json) re-skins the whole site without hardcoded colours.
 //
 // `initBrand()` runs once at boot from main.tsx.
-import { applyTheme, getTheme, DEFAULT_THEME_ID } from "@pacific-code-labs/fire-code-design-system";
+import { applyTheme, getTheme, DEFAULT_THEME_ID } from "@pacific-code-labs/sokol-design-system";
 import { getBranding, getThemes, type ThemesContent } from "@/repositories/content.repository";
 import { resolveAssetUrl } from "@/lib/media";
 
@@ -83,7 +83,7 @@ export function applyAppleTouchIcon(ref?: string | null): void {
  */
 export function initBrand(): void {
   if (typeof document === "undefined") return;
-  const stored = localStorage.getItem("firecode.theme");
+  const stored = localStorage.getItem("sokol.theme");
   const isDark = stored ? stored === "dark" : document.documentElement.classList.contains("dark");
   applyActiveTheme(isDark);
   const branding = getBranding() as { faviconUrl?: string; appleTouchIconUrl?: string };

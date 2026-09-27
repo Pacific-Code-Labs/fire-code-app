@@ -1,16 +1,16 @@
 /**
  * rbacApi (FCR-061) — typed client for GET /me + the org-scoped RBAC surface
- * (O1–O15) on fire-code-be.
+ * (O1–O15) on sokol-api.
  *
  * All RBAC routes are authenticated and org-scoped under
  *   /users/{userId}/organization/{orgId}/rbac/...
  * and the caller's userId/orgId come from GET /me (useMe). Every request sends
  * `Authorization: Bearer <Cognito accessToken>` via `authHeader()` — the same
- * mechanism `fireCodeApi` uses for /projects* and /evaluate (FCR-010). No SigV4
+ * mechanism `sokolApi` uses for /projects* and /evaluate (FCR-010). No SigV4
  * fallback here: these routes are always behind the Cognito User Pool
  * authorizer, so a signed-out caller gets a 401 (expected).
  *
- * DTOs mirror fire-code-be `src/dtos/rbac_dto.py` / `me_dto.py` (see types/rbac.ts).
+ * DTOs mirror sokol-api `src/dtos/rbac_dto.py` / `me_dto.py` (see types/rbac.ts).
  */
 
 import { get, post, put, del } from "aws-amplify/api";
@@ -34,7 +34,7 @@ import type {
   UserRoleResponse,
 } from "@/types/rbac";
 
-const API_NAME = "FireCodeApi";
+const API_NAME = "SokolApi";
 
 /** Build the org-scoped RBAC path prefix (mirrors the BE `_PREFIX`). */
 function rbacPath(userId: string, orgId: string, endpoint = ""): string {

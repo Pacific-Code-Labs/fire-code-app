@@ -19,7 +19,7 @@ import {
   Plug,
   type LucideIcon,
 } from "lucide-react";
-import type { TopologyNodeData, TopologyNodeType } from "@/services/fireCodeApi";
+import type { TopologyNodeData, TopologyNodeType } from "@/services/sokolApi";
 import { cn } from "@/lib/utils";
 
 /** Data carried on every React Flow node (mirrors TopologyNode minus id/type). */

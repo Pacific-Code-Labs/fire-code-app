@@ -16,7 +16,7 @@ import {
   SidebarHeader,
   SidebarFooter,
 } from "@/components/ui/sidebar";
-import { BrandLogo, Collapsible, CollapsibleContent, CollapsibleTrigger } from "@pacific-code-labs/fire-code-design-system";
+import { BrandLogo, Collapsible, CollapsibleContent, CollapsibleTrigger } from "@pacific-code-labs/sokol-design-system";
 import { getBrandingVM } from "@/services/branding.service";
 import { NavLink } from "@/components/NavLink";
 import { Button } from "@/components/ui/button";

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { AlertTriangle, Bell, Radio, Siren, Droplets } from "lucide-react";
 import { useLang } from "@/contexts/LangContext";
-import type { RuleGroupDTO, RuleDTO } from "@/services/fireCodeApi";
+import type { RuleGroupDTO, RuleDTO } from "@/services/sokolApi";
 import { RuleDetailModal } from "@/components/RuleDetailModal";
 import { cn } from "@/lib/utils";
 

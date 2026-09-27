@@ -1,11 +1,11 @@
 {
-  "activeThemeId": "firecode",
+  "activeThemeId": "sokol",
   "themes": [
     {
-      "id": "firecode",
-      "name": "FireCode CR",
+      "id": "sokol",
+      "name": "Sóköl",
       "isActive": true,
-      "engineThemeId": "firecode",
+      "engineThemeId": "sokol",
       "colors": {
         "primary": "#f23a1e",
         "accent": "#0aa7e6",
@@ -13,10 +13,10 @@
       }
     },
     {
-      "id": "firecode-light",
-      "name": "FireCode Light",
+      "id": "sokol-light",
+      "name": "Sóköl Light",
       "isActive": false,
-      "engineThemeId": "firecode-light",
+      "engineThemeId": "sokol-light",
       "colors": {
         "primary": "#f23a1e",
         "accent": "#0aa7e6",

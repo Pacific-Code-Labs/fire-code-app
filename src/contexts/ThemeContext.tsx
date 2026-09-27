@@ -10,7 +10,7 @@ const defaultCtx: Ctx = {
 };
 const ThemeCtx = createContext<Ctx>(defaultCtx);
 
-const STORAGE_KEY = "firecode.theme";
+const STORAGE_KEY = "sokol.theme";
 
 function getInitial(): Theme {
   if (typeof window === "undefined") return "dark";

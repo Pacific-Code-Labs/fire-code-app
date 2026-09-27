@@ -1,8 +1,8 @@
-// Client for the support API (support.fire-code.jcampos.dev, fire-code-support-be). The tenant
+// Client for the support API (support.sokol.jcampos.dev, sokol-support-be). The tenant
 // gateway's Cognito authorizer takes the app pool ID token; the path owner must be the caller.
 import { fetchAuthSession } from "aws-amplify/auth";
 
-export const SUPPORT_API_URL = (import.meta.env.VITE_SUPPORT_API_URL ?? "https://support.fire-code.jcampos.dev").replace(/\/+$/, "");
+export const SUPPORT_API_URL = (import.meta.env.VITE_SUPPORT_API_URL ?? "https://support.sokol.jcampos.dev").replace(/\/+$/, "");
 
 export interface SupportMessage {
   id: string;

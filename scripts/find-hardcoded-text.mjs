@@ -7,7 +7,7 @@ import ts from "typescript";
 
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..", "src");
 // Brand names / symbols that are the same in every language.
-const ALLOW = new Set(["FireCode", "FireCode CR", "CR", "NFPA", "PayPal", "EN", "ES", "es", "en", "∞", "…", "404", "kW", "kVA", "A", "V", "m²", "m", "Hz"]);
+const ALLOW = new Set(["Sóköl", "CR", "NFPA", "PayPal", "EN", "ES", "es", "en", "∞", "…", "404", "kW", "kVA", "A", "V", "m²", "m", "Hz"]);
 const SKIP_DIRS = new Set(["translations", "content", "test"]);
 const SKIP_FILES = new Set([]);
 const USER_ATTRS = new Set(["title", "placeholder", "aria-label", "alt", "label"]);

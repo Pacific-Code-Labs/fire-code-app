@@ -4,7 +4,7 @@ import { ChatPanel } from "@/components/ChatPanel";
 import { AssistantDrawer } from "@/components/assistant/AssistantDrawer";
 import { useAssistant } from "@/contexts/AssistantContext";
 import { useLang } from "@/contexts/LangContext";
-import { BuildingType } from "@/services/fireCodeApi";
+import { BuildingType } from "@/services/sokolApi";
 
 /**
  * Dashboard floating launcher + assistant drawer (FCR-113).

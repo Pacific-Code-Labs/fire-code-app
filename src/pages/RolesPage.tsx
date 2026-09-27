@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Badge, Button, Card, Icon, Modal } from "@pacific-code-labs/fire-code-design-system";
+import { Badge, Button, Card, Icon, Modal } from "@pacific-code-labs/sokol-design-system";
 import { useLang } from "@/contexts/LangContext";
 import { useMe } from "@/hooks/useMe";
 import { useDeleteRole, useOrgRoles, usePermissions } from "@/hooks/useRbac";

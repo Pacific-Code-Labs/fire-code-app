@@ -3,10 +3,10 @@ import { useQuery } from "@tanstack/react-query";
 import { BuildingSelector } from "@/components/BuildingSelector";
 import { CategoryCard } from "@/components/CategoryCard";
 import { Button } from "@/components/ui/button";
-import { Skeleton } from "@pacific-code-labs/fire-code-design-system";
+import { Skeleton } from "@pacific-code-labs/sokol-design-system";
 import { useLang } from "@/contexts/LangContext";
 import { useAssistant } from "@/contexts/AssistantContext";
-import { fireCodeApi, BuildingType, RuleCategory } from "@/services/fireCodeApi";
+import { sokolApi, BuildingType, RuleCategory } from "@/services/sokolApi";
 import { cn } from "@/lib/utils";
 import { tChrome, fmt } from "@/lib/chrome-i18n";
 import { Printer, ShieldAlert, ListChecks, AlertTriangle, ChevronLeft, ChevronRight } from "lucide-react";
@@ -69,7 +69,7 @@ export default function Evaluator() {
   const { data, isLoading, isError } = useQuery({
     queryKey: ["rules", filters, page, selectedCategory, lang],
     queryFn: () =>
-      fireCodeApi.getRules({
+      sokolApi.getRules({
         building_type:    building   || undefined,
         area_m2:          area       || undefined,
         usage:            context    || undefined,

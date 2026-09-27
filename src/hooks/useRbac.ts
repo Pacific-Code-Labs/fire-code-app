@@ -1,5 +1,5 @@
 /**
- * useRbac (FCR-061) — org-scoped RBAC hooks over fire-code-be O1–O14.
+ * useRbac (FCR-061) — org-scoped RBAC hooks over sokol-api O1–O14.
  *
  * userId (Cognito sub) + orgId are resolved from GET /me (useMe), so the
  * hooks need no params — pass-through to rbacApi with the resolved ids.

@@ -4,7 +4,7 @@ import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { ArrowLeft, Loader2, Lock } from "lucide-react";
-import { Button, FormField, Input, OtpInput } from "@pacific-code-labs/fire-code-design-system";
+import { Button, FormField, Input, OtpInput } from "@pacific-code-labs/sokol-design-system";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLang } from "@/contexts/LangContext";
 import { AuthShell } from "@/components/auth/AuthShell";

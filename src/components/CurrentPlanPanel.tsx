@@ -16,7 +16,7 @@ import {
   CardBody,
   CardHeader,
   CardTitle,
-} from "@pacific-code-labs/fire-code-design-system";
+} from "@pacific-code-labs/sokol-design-system";
 import { useLang } from "@/contexts/LangContext";
 import { useBilling, type UsageMetric } from "@/contexts/BillingContext";
 import type { Dict } from "@/lib/i18n";

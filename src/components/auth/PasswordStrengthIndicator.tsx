@@ -31,7 +31,7 @@ const BAR_COLORS = [
 /**
  * PasswordStrengthIndicator — a strength meter + per-rule checklist, driven by
  * the same Cognito policy used in the zod schemas. Adapts the POS component to
- * FireCode's LangContext + DS tokens (risk/cat color tokens, no hardcoded hex).
+ * Sóköl's LangContext + DS tokens (risk/cat color tokens, no hardcoded hex).
  */
 export function PasswordStrengthIndicator({ password }: { password: string }) {
   const { tr } = useLang();

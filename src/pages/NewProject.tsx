@@ -8,10 +8,10 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { fireCodeApi, BuildingType, QuotaError } from "@/services/fireCodeApi";
+import { sokolApi, BuildingType, QuotaError } from "@/services/sokolApi";
 import type { RiskLevel } from "@/hooks/useProjects";
 import { Loader2, ArrowLeft } from "lucide-react";
-import { Alert, AlertDescription } from "@pacific-code-labs/fire-code-design-system";
+import { Alert, AlertDescription } from "@pacific-code-labs/sokol-design-system";
 import { UpgradeModal } from "@/components/UpgradeModal";
 import { localizedPath } from "@/lib/paths";
 
@@ -46,9 +46,9 @@ export default function NewProject() {
     setError(null);
     setSubmitting(true);
     try {
-      let evalResult: Awaited<ReturnType<typeof fireCodeApi.evaluate>> | null = null;
+      let evalResult: Awaited<ReturnType<typeof sokolApi.evaluate>> | null = null;
       try {
-        evalResult = await fireCodeApi.evaluate({
+        evalResult = await sokolApi.evaluate({
           building_type: buildingType,
           usage,
           user_query: `Save evaluation for project: ${name}`,

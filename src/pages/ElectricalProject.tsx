@@ -19,12 +19,12 @@ import { Input } from "@/components/ui/input";
 import { useLang } from "@/contexts/LangContext";
 import { useProject } from "@/hooks/useProjects";
 import {
-  fireCodeApi,
+  sokolApi,
   type ElectricalInputs,
   type ElectricalLoadData,
   type Topology,
   type ProjectBuildingType,
-} from "@/services/fireCodeApi";
+} from "@/services/sokolApi";
 import { ElectricalDiagramEditor } from "@/components/electrical/ElectricalDiagramEditor";
 import { ElectricalLoadCard } from "@/components/assistant/ElectricalLoadCard";
 import { localizedPath } from "@/lib/paths";
@@ -70,7 +70,7 @@ export default function ElectricalProject() {
   useEffect(() => {
     if (editId) return;
     let alive = true;
-    fireCodeApi
+    sokolApi
       .postElectricalPreliminary({ inputs })
       .then((r) => {
         if (!alive) return;
@@ -99,7 +99,7 @@ export default function ElectricalProject() {
       setResult(snap.result);
       setSnapshotTopology(snap.topology ?? EMPTY_TOPOLOGY);
     } else {
-      fireCodeApi
+      sokolApi
         .postElectricalPreliminary({ inputs })
         .then((r) => {
           setSeed(r);
@@ -142,8 +142,8 @@ export default function ElectricalProject() {
       };
       // FCR-118: edit in place when we loaded an existing study, else create.
       const saved = editId
-        ? await fireCodeApi.updateProject(editId, body)
-        : await fireCodeApi.createProject(body);
+        ? await sokolApi.updateProject(editId, body)
+        : await sokolApi.createProject(body);
       toast.success(tr.elec_saved);
       navigate(localizedPath(lang, `/projects/${saved.id}`));
     } catch {

@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { RiskBadge } from "@/components/RiskBadge";
 import { FolderKanban, Plus, Trash2, Eye, Zap } from "lucide-react";
-import { BuildingType } from "@/services/fireCodeApi";
+import { BuildingType } from "@/services/sokolApi";
 import { localizedPath } from "@/lib/paths";
 import {
   Table,
@@ -26,7 +26,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@pacific-code-labs/fire-code-design-system";
+} from "@pacific-code-labs/sokol-design-system";
 
 export default function Projects() {
   const { projects, loading, remove } = useProjects();

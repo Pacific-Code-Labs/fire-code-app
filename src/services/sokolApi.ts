@@ -1,5 +1,5 @@
 /**
- * FireCode CR — API service
+ * Sóköl — API service
  *
  * All requests are SigV4-signed automatically via the Cognito Identity Pool
  * anonymous credentials configured in src/config/amplify.ts.
@@ -7,7 +7,7 @@
  *
  * Usage:
  *   import "../config/amplify";   // configure once in main.tsx
- *   const groups = await fireCodeApi.getRules({ building_type: "comercial" });
+ *   const groups = await sokolApi.getRules({ building_type: "comercial" });
  */
 
 import { get, post, put, del } from "aws-amplify/api";
@@ -139,7 +139,7 @@ export interface DemoLimitResponse {
   ctaHref: string;
 }
 
-/** Thrown by fireCodeApi.evaluateDemo on HTTP 429 (demo daily cap reached). */
+/** Thrown by sokolApi.evaluateDemo on HTTP 429 (demo daily cap reached). */
 export class DemoLimitError extends Error {
   readonly payload: DemoLimitResponse;
   constructor(payload: DemoLimitResponse) {
@@ -187,7 +187,7 @@ export class QuotaError extends Error {
   }
 }
 
-// ── Project DTOs (mirror fire-code-be src/dtos/project_dto.py) ────────────────
+// ── Project DTOs (mirror sokol-api src/dtos/project_dto.py) ────────────────
 
 /** Backend stores building_type as a lowercase string enum. */
 export type ProjectBuildingType = "residencial" | "comercial" | "industrial";
@@ -431,7 +431,7 @@ export interface ElectricalPreliminaryRequest {
 
 // ── API client ───────────────────────────────────────────────────────────────
 
-const API_NAME = "FireCodeApi";
+const API_NAME = "SokolApi";
 
 function toQueryString(params: Record<string, unknown>): Record<string, string> {
   return Object.fromEntries(
@@ -446,7 +446,7 @@ async function resolveBody<T>(op: { response: Promise<{ body: { json: () => Prom
   return (await resp.body.json()) as T;
 }
 
-export const fireCodeApi = {
+export const sokolApi = {
   /**
    * GET /rules — returns rules grouped by fire protection category.
    * All params are optional; omitting them returns all groups.

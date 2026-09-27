@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import type { DemoLimitResponse } from "@/services/fireCodeApi";
+import type { DemoLimitResponse } from "@/services/sokolApi";
 import { useLang } from "@/contexts/LangContext";
 
 interface Props {

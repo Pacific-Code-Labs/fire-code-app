@@ -1,5 +1,5 @@
 /**
- * The reference a backend 5xx carries (fire_code_common.observability): the `X-Request-Id`
+ * The reference a backend 5xx carries (sokol_common.observability): the `X-Request-Id`
  * header, or `reference` in the JSON body. Users quote it in "Report this problem" and support
  * finds the matching incident with it.
  */

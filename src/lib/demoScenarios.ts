@@ -5,7 +5,7 @@
  * rules set. Labels/queries/usage come from i18n; numeric params live here.
  */
 import { BellRing, ShieldCheck, UtensilsCrossed, Warehouse, type LucideIcon } from "lucide-react";
-import { BuildingType } from "@/services/fireCodeApi";
+import { BuildingType } from "@/services/sokolApi";
 import type { Dict } from "@/lib/i18n";
 
 /** The building inputs a scenario sets (overwrites the demo selector + sent with the request). */

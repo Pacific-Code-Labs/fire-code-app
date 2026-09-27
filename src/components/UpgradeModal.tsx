@@ -4,7 +4,7 @@
  * Opened when an authenticated request is rejected for hitting a plan limit:
  *   - HTTP 402 from /projects (saved-projects limit), or
  *   - HTTP 429 from /evaluate (monthly evaluate quota).
- * Both surface as a typed `QuotaError` from `fireCodeApi`; pass it as `quota`.
+ * Both surface as a typed `QuotaError` from `sokolApi`; pass it as `quota`.
  *
  * Built on the DS `Modal` primitive (FCR-003). All copy is bilingual via
  * LangContext — no hardcoded user-facing strings.
@@ -12,10 +12,10 @@
  * The CTA routes to `/pricing` (FCR-028): the public, card-free plan surface.
  */
 import { useNavigate } from "react-router-dom";
-import { Modal } from "@pacific-code-labs/fire-code-design-system";
+import { Modal } from "@pacific-code-labs/sokol-design-system";
 import { useLang } from "@/contexts/LangContext";
 import { localizedPath } from "@/lib/paths";
-import type { QuotaError } from "@/services/fireCodeApi";
+import type { QuotaError } from "@/services/sokolApi";
 
 function fill(template: string, vars: Record<string, string | number>): string {
   return template.replace(/\{(\w+)\}/g, (_, k) => String(vars[k] ?? ""));

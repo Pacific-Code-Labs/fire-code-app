@@ -1,6 +1,6 @@
 import { forwardRef, useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
-import { Input, type InputProps } from "@pacific-code-labs/fire-code-design-system";
+import { Input, type InputProps } from "@pacific-code-labs/sokol-design-system";
 import { useLang } from "@/contexts/LangContext";
 import { cn } from "@/lib/utils";
 

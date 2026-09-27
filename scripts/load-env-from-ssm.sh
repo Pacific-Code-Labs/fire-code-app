@@ -36,7 +36,7 @@ case "${ENVIRONMENT}" in
 esac
 
 DEPLOY_REGION="${AWS_REGION:-${AWS_DEFAULT_REGION:-us-east-1}}"
-BASE_PATH="/fire-code/${ENVIRONMENT}/web"
+BASE_PATH="/sokol/${ENVIRONMENT}/web"
 AWS_ARGS=(--region "${DEPLOY_REGION}")
 if [[ -n "${AWS_PROFILE_NAME}" && "${AWS_PROFILE_NAME}" != "-" ]]; then
   AWS_ARGS+=(--profile "${AWS_PROFILE_NAME}")

@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Badge, Card, CardBody, Icon } from "@pacific-code-labs/fire-code-design-system";
+import { Badge, Card, CardBody, Icon } from "@pacific-code-labs/sokol-design-system";
 import { useLang } from "@/contexts/LangContext";
 import { actionLabel, moduleLabel, submoduleLabel } from "@/lib/rbacI18n";
 import type {
@@ -12,7 +12,7 @@ import type {
 /**
  * PermissionMatrix (FCR-061) — modules → submodules → grantable-action grid,
  * rendered ONLY from the org-filtered available matrix (O2). Port of the POS
- * matrix, adapted to the fire-code-be DTO shape:
+ * matrix, adapted to the sokol-api DTO shape:
  *   - the matrix exposes `moduleId`/`submoduleId` + `actions: string[]` (action
  *     NAMES, not action objects);
  *   - persisted grant rows (O9) and O10 writes use action UUIDs, so we map
@@ -21,7 +21,7 @@ import type {
  * The internal cell key is `moduleId|submoduleId|actionName` — names are stable
  * within a module/submodule, so the matrix never needs the action id until it
  * serializes back. Doc-type picker logic from the POS source is dropped (no
- * `documents` module in FireCode's catalog).
+ * `documents` module in Sóköl's catalog).
  */
 
 /** Internal grant key — one selected (module, submodule, action-name) cell. */

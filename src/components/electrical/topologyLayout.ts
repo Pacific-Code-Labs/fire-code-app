@@ -6,7 +6,7 @@
  */
 import dagre from "@dagrejs/dagre";
 import { MarkerType, type Edge } from "@xyflow/react";
-import type { Topology, TopologyNode } from "@/services/fireCodeApi";
+import type { Topology, TopologyNode } from "@/services/sokolApi";
 import type { ElectricalRFNode } from "./electricalNodes";
 
 const NODE_W = 180;

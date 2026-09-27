@@ -12,7 +12,7 @@ import {
   CardDescription,
   FormField,
   Input,
-} from "@pacific-code-labs/fire-code-design-system";
+} from "@pacific-code-labs/sokol-design-system";
 import { toast } from "sonner";
 import { DashboardLayout } from "@/components/DashboardLayout";
 import { useAuth } from "@/contexts/AuthContext";

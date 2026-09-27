@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Loader2, MailCheck, RefreshCw } from "lucide-react";
-import { Button, FormField, OtpInput } from "@pacific-code-labs/fire-code-design-system";
+import { Button, FormField, OtpInput } from "@pacific-code-labs/sokol-design-system";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLang } from "@/contexts/LangContext";
 import { AuthShell } from "@/components/auth/AuthShell";

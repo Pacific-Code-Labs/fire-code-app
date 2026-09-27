@@ -12,7 +12,7 @@ export default defineConfig(() => ({
       overlay: false,
     },
   },
-  // The landing (fire-safety-advisor) and the admin console (fire-code-admin) are separate
+  // The landing (sokol) and the admin console (sokol-admin) are separate
   // apps; this is only the signed-in product.
   plugins: [react()],
   resolve: {

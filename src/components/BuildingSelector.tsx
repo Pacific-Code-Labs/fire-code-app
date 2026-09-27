@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Building2, Factory, Home } from "lucide-react";
 import { useLang } from "@/contexts/LangContext";
-import { BuildingType } from "@/services/fireCodeApi";
+import { BuildingType } from "@/services/sokolApi";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";

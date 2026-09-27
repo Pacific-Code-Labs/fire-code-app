@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Button } from "@/components/ui/button";
 import { RiskBadge } from "@/components/RiskBadge";
 import { ArrowLeft, FileDown, ListChecks, BookOpen, MapPin, Zap, Pencil } from "lucide-react";
-import { BuildingType } from "@/services/fireCodeApi";
+import { BuildingType } from "@/services/sokolApi";
 import { ElectricalLoadCard } from "@/components/assistant/ElectricalLoadCard";
 import { localizedPath } from "@/lib/paths";
 

@@ -1,6 +1,6 @@
 import { AlertTriangle, BookOpen, Check, Globe, ListChecks, MapPin } from "lucide-react";
 import { useLang } from "@/contexts/LangContext";
-import type { CrContextItem, EvaluateResponse } from "@/services/fireCodeApi";
+import type { CrContextItem, EvaluateResponse } from "@/services/sokolApi";
 
 interface Props { data: EvaluateResponse; }
 

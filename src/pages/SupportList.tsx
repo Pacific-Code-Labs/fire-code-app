@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Plus } from "lucide-react";
-import { Badge, ListSkeleton, type BadgeProps } from "@pacific-code-labs/fire-code-design-system";
+import { Badge, ListSkeleton, type BadgeProps } from "@pacific-code-labs/sokol-design-system";
 import { DashboardLayout } from "@/components/DashboardLayout";
 import { Button } from "@/components/ui/button";
 import { useLang } from "@/contexts/LangContext";

@@ -42,7 +42,7 @@ export function stripLangPrefix(pathname: string): { lang: Lang | null; rest: st
   return { lang, rest: rest === "" ? "/" : `/${rest}` };
 }
 
-const STORAGE_KEY = "firecode-lang";
+const STORAGE_KEY = "sokol-lang";
 
 /** Read the persisted language (localStorage), falling back to DEFAULT_LANG. */
 export function persistedLang(): Lang {

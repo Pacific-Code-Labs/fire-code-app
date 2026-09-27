@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { RiskBadge } from "@/components/RiskBadge";
 import { CurrentPlanPanel } from "@/components/CurrentPlanPanel";
 import { FolderKanban, Plus, Sparkles, ArrowRight } from "lucide-react";
-import { BuildingType } from "@/services/fireCodeApi";
+import { BuildingType } from "@/services/sokolApi";
 import { localizedPath } from "@/lib/paths";
 
 export default function Dashboard() {

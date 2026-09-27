@@ -7,7 +7,7 @@
  * `displayName` when no key exists (e.g. custom org roles, or modules added
  * before their i18n keys ship).
  *
- * FireCode's i18n is a flat dictionary object (`tr` from useLang), so keys are
+ * Sóköl's i18n is a flat dictionary object (`tr` from useLang), so keys are
  * flattened with underscores: `rbac_module_<name>`, `rbac_sub_<module>_<name>`,
  * `rbac_action_<name>`, `rbac_role_<name>_name`, `rbac_role_<name>_desc`.
  */

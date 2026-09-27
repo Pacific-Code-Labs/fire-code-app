@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { ArrowLeft, Loader2, Paperclip } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
-import { Badge, cn, DetailSkeleton } from "@pacific-code-labs/fire-code-design-system";
+import { Badge, cn, DetailSkeleton } from "@pacific-code-labs/sokol-design-system";
 import { DashboardLayout } from "@/components/DashboardLayout";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";

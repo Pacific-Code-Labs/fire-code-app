@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { BrandLogo, Card, CardBody, CardHeader, CardTitle, CardDescription } from "@pacific-code-labs/fire-code-design-system";
+import { BrandLogo, Card, CardBody, CardHeader, CardTitle, CardDescription } from "@pacific-code-labs/sokol-design-system";
 import { useLang } from "@/contexts/LangContext";
 import { getBrandingVM } from "@/services/branding.service";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -8,7 +8,7 @@ import { ThemeToggle } from "@/components/ThemeToggle";
  * AuthShell — the shared frame for every unauthenticated auth screen
  * (Login / Register / VerifyEmail / ForgotPassword / ResetPassword).
  *
- * Adapts the POS `AuthLayout` to FireCode: centered card, FireCode CR brand
+ * Adapts the POS `AuthLayout` to Sóköl: centered card, Sóköl brand
  * lockup, a theme toggle, and DS `Card` primitives. Copy is passed in by the
  * caller (bilingual via LangContext) — this shell hardcodes no user-facing text
  * beyond the brand name.
