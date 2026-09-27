@@ -31,8 +31,8 @@ import SupportList from "./pages/SupportList.tsx";
 import SupportNew from "./pages/SupportNew.tsx";
 import SupportDetail from "./pages/SupportDetail.tsx";
 
-// sokol-app: the signed-in product at app.fire-code.jcampos.dev. The marketing
-// landing (fire-code.jcampos.dev, repo sokol) and the private admin
+// sokol-app: the signed-in product at app.sokol.jcampos.dev. The marketing
+// landing (sokol.jcampos.dev, repo sokol) and the private admin
 // console (sokol-admin) are separate apps; this one has no landing page and no
 // admin code. `/:lang` goes to the dashboard (RequireAuth sends guests to login).
 
@@ -49,7 +49,7 @@ function LegacyRedirect() {
   return <Navigate to={localizedPath(persistedLang(), rest) + location.search + location.hash} replace />;
 }
 
-/** The public demo lives on the landing (fire-code.jcampos.dev/<lang>/demo); old links go there. */
+/** The public demo lives on the landing (sokol.jcampos.dev/<lang>/demo); old links go there. */
 function DemoRedirect() {
   const { lang } = useParams();
   useEffect(() => {

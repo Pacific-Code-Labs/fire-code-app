@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages (app.fire-code.jcampos.dev)
+name: Deploy to GitHub Pages (app.sokol.jcampos.dev)
 
 on:
   push:

@@ -89,7 +89,7 @@ export default function Login() {
               {tr.auth_login_register}
             </Link>
           </div>
-          {/* The marketing landing is a separate site (fire-code.jcampos.dev). */}
+          {/* The marketing landing is a separate site (sokol.jcampos.dev). */}
           <a href={landingHref(lang)} className="text-muted-foreground hover:text-foreground mt-1">
             {tr.back_home}
           </a>

@@ -8,9 +8,9 @@ The workspace contract (repos, domains, SSM keys, deploy order) is in the root
 
 ## 1. Purpose
 
-`sokol-app` is the **signed-in Sóköl product** at **`https://app.fire-code.jcampos.dev`**:
+`sokol-app` is the **signed-in Sóköl product** at **`https://app.sokol.jcampos.dev`**:
 auth screens, dashboard, AI evaluator, projects (incl. electrical), roles (RBAC), profile, pricing /
-upgrade and the Support area. The public demo is on the landing (`fire-code.jcampos.dev/<lang>/demo`); `/:lang/demo` here only redirects there. It helps interpret
+upgrade and the Support area. The public demo is on the landing (`sokol.jcampos.dev/<lang>/demo`); `/:lang/demo` here only redirects there. It helps interpret
 **NFPA fire-protection standards for Costa Rica** against the `sokol-api` API
 (**`https://api.sokol.jcampos.dev`**; the old `api.sokol.jcampos.dev` name is transitional).
 
@@ -18,8 +18,8 @@ It was split out of `sokol` (app-separation):
 
 | Site | Repo | Host |
 |---|---|---|
-| marketing landing | `sokol` (public) | `fire-code.jcampos.dev` — links here in a new tab |
-| **this app** | `sokol-app` (public) | `app.fire-code.jcampos.dev` |
+| marketing landing | `sokol` (public) | `sokol.jcampos.dev` — links here in a new tab |
+| **this app** | `sokol-app` (public) | `app.sokol.jcampos.dev` |
 | admin console + online CMS | `sokol-admin` (private) | `admin.sokol.jcampos.dev` |
 
 There is **no landing page and no admin code here**: `/:lang` redirects to `dashboard`
@@ -173,7 +173,7 @@ These strings are edited in the **`sokol-admin` Translations page** (dev-server 
 - **CI:** `.github/workflows/deploy-pages.yml` — push to `main` → pnpm + Node 24 → assume
   `secrets.AWS_WEB_BUILD_ROLE_ARN` (read-only OIDC role from `sokol-infrastructure`
   `web/web-params.yml`) → load SSM → `pnpm build` → GitHub Pages. `public/CNAME` =
-  `app.fire-code.jcampos.dev`; `robots.txt` + `<meta robots>` keep it out of search engines.
+  `app.sokol.jcampos.dev`; `robots.txt` + `<meta robots>` keep it out of search engines.
 - **Dev:** `pnpm dev` on `127.0.0.1:5174` (landing 5173, admin 5175).
 - **Loading states:** data loading uses the DS skeletons (`ShellSkeleton` in `RequireAuth`,
   `TableSkeleton`, `ListSkeleton`, …), never a centred spinner; secondary forms open in the DS `Drawer`.
