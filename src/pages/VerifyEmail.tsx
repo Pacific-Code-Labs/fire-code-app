@@ -44,10 +44,17 @@ export default function VerifyEmail() {
     setVerifying(true);
     setError(null);
     try {
-      await confirmSignUp(email, code);
+      try {
+        await confirmSignUp(email, code);
+      } catch (e: unknown) {
+        // The PostConfirmation trigger (saves the user in the DB) runs after Cognito has
+        // already confirmed the account; a trigger timeout surfaces as this error. The account
+        // is confirmed and the API provisions on the first call, so carry on.
+        if ((e as { name?: string })?.name !== "UserLambdaValidationException") throw e;
+      }
 
-      // Auto sign-in after verification (the BE then auto-provisions the
-      // personal org + owner role on the first authenticated call — FCR-008/021).
+      // Auto sign-in after verification. The user row + personal org were saved by the
+      // PostConfirmation trigger (the API re-checks on the first authenticated call — FCR-008/021).
       const password = sessionStorage.getItem("verificationPassword");
       const redirectTo = sessionStorage.getItem("redirectAfterLogin") ?? localizedPath(lang, "/dashboard");
       if (password) {
