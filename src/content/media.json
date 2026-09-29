@@ -27,6 +27,20 @@
         "en": "Sóköl favicon"
       },
       "createdAt": "2026-06-16T00:00:00Z"
+    },
+    {
+      "id": "media-apple-touch-icon",
+      "kind": "image",
+      "source": "local",
+      "path": "/apple-touch-icon.png",
+      "filename": "apple-touch-icon.png",
+      "mime": "image/png",
+      "size": 0,
+      "alt": {
+        "es": "Ícono de Sóköl para pantalla de inicio",
+        "en": "Sóköl home-screen icon"
+      },
+      "createdAt": "2026-09-28T00:00:00Z"
     }
   ]
 }

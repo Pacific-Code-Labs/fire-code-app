@@ -6,7 +6,7 @@
   "logoUrlDark": "",
   "markUrl": "",
   "faviconUrl": "/favicon.ico",
-  "appleTouchIconUrl": "",
+  "appleTouchIconUrl": "/apple-touch-icon.png",
   "ogImage": "/og-image.png",
   "socialCardUrl": {
     "es": "",
